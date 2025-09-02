@@ -15,8 +15,17 @@ public class Person {
         boolean pensioner, boolean publicServer) {
             this.name = name;
             this.surname = surname;
+            
             SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
-            this.birthDate = formato.parse(birthDate);
+            try {
+                this.birthDate = formato.parse(birthDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            this.anotherCompanyOwner = anotherCompanyOwner;
+            this.pensioner = pensioner;
+            this.publicServer = publicServer;
         }
 
     public String fullName(){
