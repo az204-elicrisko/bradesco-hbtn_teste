@@ -18,8 +18,8 @@ public class PersonTest {
 
     @Test 
     public void test_calculateYearlySalary() {
-        person.setSalary(1200f);
-        Assertions.assertEquals(14400f, person.getSalary(), 0.1f);
+        person.setSalary(1200.0);
+        Assertions.assertEquals(14400.0, person.getSalary(), 0.1);
     }
 
     @Test
