@@ -18,15 +18,15 @@ public class PersonTest {
 
     @Test 
     public void test_calculateYearlySalary() {
-        person.setSalary(1200);
-        Assertions.assertEquals(14400f, person.getSalary(), 0.001f);
+        person.setSalary(1200f);
+        Assertions.assertEquals(14400f, person.getSalary());
     }
 
     @Test
     public void person_is_MEI(){
         Person personMei = new Person("Este", "Mei", "02/09/2000", false, false, false);
         personMei.setSalary(1000);
-        Assertions.assertFalse(personMei.isMEI());
+        Assertions.assertTrue(personMei.isMEI());
     }
 
     @Test
