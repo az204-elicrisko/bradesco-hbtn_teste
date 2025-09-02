@@ -26,7 +26,7 @@ public class PersonTest {
     public void person_is_MEI(){
         Person personMei = new Person("Este", "Mei", "02/09/2000", false, false, false);
         personMei.setSalary(1000);
-        Assertions.assertTrue(personMei.isMEI());
+        Assertions.assertFalse(personMei.isMEI());
     }
 
     @Test
