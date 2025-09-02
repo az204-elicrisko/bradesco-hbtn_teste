@@ -1,14 +1,16 @@
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 
 public class PersonTest {
 
+    private Person person;
+
     @BeforeEach
     public void setup() {
-        Person person = new Person("Paul","McCartney",2000,true,true,true);
+        person = new Person("Paul","McCartney",2000,true,true,true);
     }
-
+    
     @Test
     public void show_full_name() {
         assertEquals("Paul McCartney", person.fullName());
