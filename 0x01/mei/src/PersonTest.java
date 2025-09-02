@@ -8,9 +8,9 @@ public class PersonTest {
 
     @BeforeEach
     public void setup() {
-        person = new Person("Paul","McCartney",2000,true,true,true);
+        person = new Person("Paul","McCartney","02/09/2000",true,true,true);
     }
-    
+
     @Test
     public void show_full_name() {
         assertEquals("Paul McCartney", person.fullName());
