@@ -19,7 +19,7 @@ public class PersonTest {
     @Test 
     public void test_calculateYearlySalary() {
         person.setSalary(1200);
-        assertEquals(14400, person.getSalary());
+        assertEquals(14400f, person.getSalary(), 0.001f);
     }
 
     @Test
