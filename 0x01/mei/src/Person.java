@@ -8,11 +8,12 @@ public class Person {
     private boolean anotherCompanyOwner, pensioner, publicServer;
     private float salary;
 
-    public Person(String name, String surname, Date birthDate, boolean anotherCompanyOwner, 
+    public Person(String name, String surname, String birthDate, boolean anotherCompanyOwner, 
         boolean pensioner, boolean publicServer) {
             this.name = name;
             this.surname = surname;
-            this.birthDate = birthDate;
+            SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+            this.birthDate = formato.parse(birthDate);
         }
 
     public String fullName(){
@@ -34,11 +35,34 @@ public class Person {
     public boolean isMEI(){
         
         return ((salary * 12) < 130000) 
-            && (birthDate.compareTo(new java.util.Date()) > 18)
+            && (temMaisDe18Anos(birthDate))
             && (anotherCompanyOwner == false)
             && (pensioner == false)
             && (publicServer == false);
 
     }
 
+    public static boolean temMaisDe18Anos(Date dataNascimento) {
+        Calendar nascimento = Calendar.getInstance();
+        nascimento.setTime(dataNascimento);
+
+        Calendar hoje = Calendar.getInstance();
+
+        int anoNascimento = nascimento.get(Calendar.YEAR);
+        int mesNascimento = nascimento.get(Calendar.MONTH);
+        int diaNascimento = nascimento.get(Calendar.DAY_OF_MONTH);
+
+        int anoAtual = hoje.get(Calendar.YEAR);
+        int mesAtual = hoje.get(Calendar.MONTH);
+        int diaAtual = hoje.get(Calendar.DAY_OF_MONTH);
+
+        int idade = anoAtual - anoNascimento;
+
+        // Ajusta se ainda não fez aniversário este ano
+        if (mesAtual < mesNascimento || (mesAtual == mesNascimento && diaAtual < diaNascimento)) {
+            idade--;
+        }
+
+        return idade >= 18;
+    }
 }
