@@ -1,4 +1,4 @@
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 
@@ -13,25 +13,25 @@ public class PersonTest {
 
     @Test
     public void show_full_name() {
-        assertEquals("Paul McCartney", person.fullName());
+        Assertions.assertEquals("Paul McCartney", person.fullName());
     }
 
     @Test 
     public void test_calculateYearlySalary() {
         person.setSalary(1200);
-        assertEquals(14400f, person.getSalary(), 0.001f);
+        Assertions.assertEquals(14400f, person.getSalary(), 0.001f);
     }
 
     @Test
     public void person_is_MEI(){
         Person personMei = new Person("Este", "Mei", "02/09/2000", false, false, false);
         personMei.setSalary(1000);
-        assertTrue(personMei.isMEI());
+        Assertions.assertTrue(personMei.isMEI());
     }
 
     @Test
     public void person_is_not_MEI() {
         person.setSalary(1200);
-        assertFalse(person.isMEI());
+        Assertions.assertFalse(person.isMEI());
     }
 }
