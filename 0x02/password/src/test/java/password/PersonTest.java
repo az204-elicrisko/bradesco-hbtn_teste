@@ -9,7 +9,7 @@ public class PersonTest {
     private static Person person;
 
     @BeforeAll
-    public void setup() {
+    public static void setup() {
         person = new Person("UsuarioTeste", "SenhaTeste1!");
     }
 
